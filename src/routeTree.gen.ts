@@ -10,33 +10,180 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as BoutiqueRouteImport } from './routes/boutique'
+import { Route as PanierRouteImport } from './routes/panier'
+import { Route as DashboardIndexRouteImport } from './routes/dashboard.index'
+import { Route as DashboardCategoriesRouteImport } from './routes/dashboard.categories'
+import { Route as DashboardClientsRouteImport } from './routes/dashboard.clients'
+import { Route as DashboardCommandesRouteImport } from './routes/dashboard.commandes'
+import { Route as DashboardMarquesRouteImport } from './routes/dashboard.marques'
+import { Route as DashboardParametresRouteImport } from './routes/dashboard.parametres'
+import { Route as DashboardProduitsRouteImport } from './routes/dashboard.produits'
+import { Route as DashboardStatistiquesRouteImport } from './routes/dashboard.statistiques'
+import { Route as ProduitProductIdRouteImport } from './routes/produit.$productId'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BoutiqueRoute = BoutiqueRouteImport.update({
+  id: '/boutique',
+  path: '/boutique',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PanierRoute = PanierRouteImport.update({
+  id: '/panier',
+  path: '/panier',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DashboardIndexRoute = DashboardIndexRouteImport.update({
+  id: '/dashboard/',
+  path: '/dashboard/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DashboardCategoriesRoute = DashboardCategoriesRouteImport.update({
+  id: '/dashboard/categories',
+  path: '/dashboard/categories',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DashboardClientsRoute = DashboardClientsRouteImport.update({
+  id: '/dashboard/clients',
+  path: '/dashboard/clients',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DashboardCommandesRoute = DashboardCommandesRouteImport.update({
+  id: '/dashboard/commandes',
+  path: '/dashboard/commandes',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DashboardMarquesRoute = DashboardMarquesRouteImport.update({
+  id: '/dashboard/marques',
+  path: '/dashboard/marques',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DashboardParametresRoute = DashboardParametresRouteImport.update({
+  id: '/dashboard/parametres',
+  path: '/dashboard/parametres',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DashboardProduitsRoute = DashboardProduitsRouteImport.update({
+  id: '/dashboard/produits',
+  path: '/dashboard/produits',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DashboardStatistiquesRoute = DashboardStatistiquesRouteImport.update({
+  id: '/dashboard/statistiques',
+  path: '/dashboard/statistiques',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProduitProductIdRoute = ProduitProductIdRouteImport.update({
+  id: '/produit/$productId',
+  path: '/produit/$productId',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/boutique': typeof BoutiqueRoute
+  '/panier': typeof PanierRoute
+  '/dashboard/categories': typeof DashboardCategoriesRoute
+  '/dashboard/clients': typeof DashboardClientsRoute
+  '/dashboard/commandes': typeof DashboardCommandesRoute
+  '/dashboard/marques': typeof DashboardMarquesRoute
+  '/dashboard/parametres': typeof DashboardParametresRoute
+  '/dashboard/produits': typeof DashboardProduitsRoute
+  '/dashboard/statistiques': typeof DashboardStatistiquesRoute
+  '/produit/$productId': typeof ProduitProductIdRoute
+  '/dashboard/': typeof DashboardIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/boutique': typeof BoutiqueRoute
+  '/panier': typeof PanierRoute
+  '/dashboard/categories': typeof DashboardCategoriesRoute
+  '/dashboard/clients': typeof DashboardClientsRoute
+  '/dashboard/commandes': typeof DashboardCommandesRoute
+  '/dashboard/marques': typeof DashboardMarquesRoute
+  '/dashboard/parametres': typeof DashboardParametresRoute
+  '/dashboard/produits': typeof DashboardProduitsRoute
+  '/dashboard/statistiques': typeof DashboardStatistiquesRoute
+  '/produit/$productId': typeof ProduitProductIdRoute
+  '/dashboard': typeof DashboardIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/boutique': typeof BoutiqueRoute
+  '/panier': typeof PanierRoute
+  '/dashboard/categories': typeof DashboardCategoriesRoute
+  '/dashboard/clients': typeof DashboardClientsRoute
+  '/dashboard/commandes': typeof DashboardCommandesRoute
+  '/dashboard/marques': typeof DashboardMarquesRoute
+  '/dashboard/parametres': typeof DashboardParametresRoute
+  '/dashboard/produits': typeof DashboardProduitsRoute
+  '/dashboard/statistiques': typeof DashboardStatistiquesRoute
+  '/produit/$productId': typeof ProduitProductIdRoute
+  '/dashboard/': typeof DashboardIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/boutique'
+    | '/panier'
+    | '/dashboard/categories'
+    | '/dashboard/clients'
+    | '/dashboard/commandes'
+    | '/dashboard/marques'
+    | '/dashboard/parametres'
+    | '/dashboard/produits'
+    | '/dashboard/statistiques'
+    | '/produit/$productId'
+    | '/dashboard/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/boutique'
+    | '/panier'
+    | '/dashboard/categories'
+    | '/dashboard/clients'
+    | '/dashboard/commandes'
+    | '/dashboard/marques'
+    | '/dashboard/parametres'
+    | '/dashboard/produits'
+    | '/dashboard/statistiques'
+    | '/produit/$productId'
+    | '/dashboard'
+  id:
+    | '__root__'
+    | '/'
+    | '/boutique'
+    | '/panier'
+    | '/dashboard/categories'
+    | '/dashboard/clients'
+    | '/dashboard/commandes'
+    | '/dashboard/marques'
+    | '/dashboard/parametres'
+    | '/dashboard/produits'
+    | '/dashboard/statistiques'
+    | '/produit/$productId'
+    | '/dashboard/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  BoutiqueRoute: typeof BoutiqueRoute
+  PanierRoute: typeof PanierRoute
+  DashboardCategoriesRoute: typeof DashboardCategoriesRoute
+  DashboardClientsRoute: typeof DashboardClientsRoute
+  DashboardCommandesRoute: typeof DashboardCommandesRoute
+  DashboardMarquesRoute: typeof DashboardMarquesRoute
+  DashboardParametresRoute: typeof DashboardParametresRoute
+  DashboardProduitsRoute: typeof DashboardProduitsRoute
+  DashboardStatistiquesRoute: typeof DashboardStatistiquesRoute
+  ProduitProductIdRoute: typeof ProduitProductIdRoute
+  DashboardIndexRoute: typeof DashboardIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +195,99 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/boutique': {
+      id: '/boutique'
+      path: '/boutique'
+      fullPath: '/boutique'
+      preLoaderRoute: typeof BoutiqueRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/panier': {
+      id: '/panier'
+      path: '/panier'
+      fullPath: '/panier'
+      preLoaderRoute: typeof PanierRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dashboard/': {
+      id: '/dashboard/'
+      path: '/dashboard'
+      fullPath: '/dashboard/'
+      preLoaderRoute: typeof DashboardIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dashboard/categories': {
+      id: '/dashboard/categories'
+      path: '/dashboard/categories'
+      fullPath: '/dashboard/categories'
+      preLoaderRoute: typeof DashboardCategoriesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dashboard/clients': {
+      id: '/dashboard/clients'
+      path: '/dashboard/clients'
+      fullPath: '/dashboard/clients'
+      preLoaderRoute: typeof DashboardClientsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dashboard/commandes': {
+      id: '/dashboard/commandes'
+      path: '/dashboard/commandes'
+      fullPath: '/dashboard/commandes'
+      preLoaderRoute: typeof DashboardCommandesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dashboard/marques': {
+      id: '/dashboard/marques'
+      path: '/dashboard/marques'
+      fullPath: '/dashboard/marques'
+      preLoaderRoute: typeof DashboardMarquesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dashboard/parametres': {
+      id: '/dashboard/parametres'
+      path: '/dashboard/parametres'
+      fullPath: '/dashboard/parametres'
+      preLoaderRoute: typeof DashboardParametresRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dashboard/produits': {
+      id: '/dashboard/produits'
+      path: '/dashboard/produits'
+      fullPath: '/dashboard/produits'
+      preLoaderRoute: typeof DashboardProduitsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dashboard/statistiques': {
+      id: '/dashboard/statistiques'
+      path: '/dashboard/statistiques'
+      fullPath: '/dashboard/statistiques'
+      preLoaderRoute: typeof DashboardStatistiquesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/produit/$productId': {
+      id: '/produit/$productId'
+      path: '/produit/$productId'
+      fullPath: '/produit/$productId'
+      preLoaderRoute: typeof ProduitProductIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  BoutiqueRoute: BoutiqueRoute,
+  PanierRoute: PanierRoute,
+  DashboardCategoriesRoute: DashboardCategoriesRoute,
+  DashboardClientsRoute: DashboardClientsRoute,
+  DashboardCommandesRoute: DashboardCommandesRoute,
+  DashboardMarquesRoute: DashboardMarquesRoute,
+  DashboardParametresRoute: DashboardParametresRoute,
+  DashboardProduitsRoute: DashboardProduitsRoute,
+  DashboardStatistiquesRoute: DashboardStatistiquesRoute,
+  ProduitProductIdRoute: ProduitProductIdRoute,
+  DashboardIndexRoute: DashboardIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
