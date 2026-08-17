@@ -13,6 +13,8 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as BoutiqueRouteImport } from './routes/boutique'
 import { Route as PanierRouteImport } from './routes/panier'
 import { Route as DashboardIndexRouteImport } from './routes/dashboard.index'
+import { Route as DashboardCategoriesRouteImport } from './routes/dashboard.categories'
+import { Route as DashboardMarquesRouteImport } from './routes/dashboard.marques'
 import { Route as DashboardProduitsRouteImport } from './routes/dashboard.produits'
 import { Route as ProduitProductIdRouteImport } from './routes/produit.$productId'
 
@@ -36,6 +38,16 @@ const DashboardIndexRoute = DashboardIndexRouteImport.update({
   path: '/dashboard/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const DashboardCategoriesRoute = DashboardCategoriesRouteImport.update({
+  id: '/dashboard/categories',
+  path: '/dashboard/categories',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DashboardMarquesRoute = DashboardMarquesRouteImport.update({
+  id: '/dashboard/marques',
+  path: '/dashboard/marques',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const DashboardProduitsRoute = DashboardProduitsRouteImport.update({
   id: '/dashboard/produits',
   path: '/dashboard/produits',
@@ -51,6 +63,8 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/boutique': typeof BoutiqueRoute
   '/panier': typeof PanierRoute
+  '/dashboard/categories': typeof DashboardCategoriesRoute
+  '/dashboard/marques': typeof DashboardMarquesRoute
   '/dashboard/produits': typeof DashboardProduitsRoute
   '/produit/$productId': typeof ProduitProductIdRoute
   '/dashboard/': typeof DashboardIndexRoute
@@ -59,6 +73,8 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/boutique': typeof BoutiqueRoute
   '/panier': typeof PanierRoute
+  '/dashboard/categories': typeof DashboardCategoriesRoute
+  '/dashboard/marques': typeof DashboardMarquesRoute
   '/dashboard/produits': typeof DashboardProduitsRoute
   '/produit/$productId': typeof ProduitProductIdRoute
   '/dashboard': typeof DashboardIndexRoute
@@ -68,6 +84,8 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/boutique': typeof BoutiqueRoute
   '/panier': typeof PanierRoute
+  '/dashboard/categories': typeof DashboardCategoriesRoute
+  '/dashboard/marques': typeof DashboardMarquesRoute
   '/dashboard/produits': typeof DashboardProduitsRoute
   '/produit/$productId': typeof ProduitProductIdRoute
   '/dashboard/': typeof DashboardIndexRoute
@@ -78,6 +96,8 @@ export interface FileRouteTypes {
     | '/'
     | '/boutique'
     | '/panier'
+    | '/dashboard/categories'
+    | '/dashboard/marques'
     | '/dashboard/produits'
     | '/produit/$productId'
     | '/dashboard/'
@@ -86,6 +106,8 @@ export interface FileRouteTypes {
     | '/'
     | '/boutique'
     | '/panier'
+    | '/dashboard/categories'
+    | '/dashboard/marques'
     | '/dashboard/produits'
     | '/produit/$productId'
     | '/dashboard'
@@ -94,6 +116,8 @@ export interface FileRouteTypes {
     | '/'
     | '/boutique'
     | '/panier'
+    | '/dashboard/categories'
+    | '/dashboard/marques'
     | '/dashboard/produits'
     | '/produit/$productId'
     | '/dashboard/'
@@ -103,6 +127,8 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   BoutiqueRoute: typeof BoutiqueRoute
   PanierRoute: typeof PanierRoute
+  DashboardCategoriesRoute: typeof DashboardCategoriesRoute
+  DashboardMarquesRoute: typeof DashboardMarquesRoute
   DashboardProduitsRoute: typeof DashboardProduitsRoute
   ProduitProductIdRoute: typeof ProduitProductIdRoute
   DashboardIndexRoute: typeof DashboardIndexRoute
@@ -138,6 +164,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DashboardIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/dashboard/categories': {
+      id: '/dashboard/categories'
+      path: '/dashboard/categories'
+      fullPath: '/dashboard/categories'
+      preLoaderRoute: typeof DashboardCategoriesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dashboard/marques': {
+      id: '/dashboard/marques'
+      path: '/dashboard/marques'
+      fullPath: '/dashboard/marques'
+      preLoaderRoute: typeof DashboardMarquesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/dashboard/produits': {
       id: '/dashboard/produits'
       path: '/dashboard/produits'
@@ -159,6 +199,8 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   BoutiqueRoute: BoutiqueRoute,
   PanierRoute: PanierRoute,
+  DashboardCategoriesRoute: DashboardCategoriesRoute,
+  DashboardMarquesRoute: DashboardMarquesRoute,
   DashboardProduitsRoute: DashboardProduitsRoute,
   ProduitProductIdRoute: ProduitProductIdRoute,
   DashboardIndexRoute: DashboardIndexRoute,
