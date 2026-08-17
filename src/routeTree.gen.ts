@@ -12,6 +12,8 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as BoutiqueRouteImport } from './routes/boutique'
 import { Route as PanierRouteImport } from './routes/panier'
+import { Route as DashboardIndexRouteImport } from './routes/dashboard.index'
+import { Route as DashboardProduitsRouteImport } from './routes/dashboard.produits'
 import { Route as ProduitProductIdRouteImport } from './routes/produit.$productId'
 
 const IndexRoute = IndexRouteImport.update({
@@ -29,6 +31,16 @@ const PanierRoute = PanierRouteImport.update({
   path: '/panier',
   getParentRoute: () => rootRouteImport,
 } as any)
+const DashboardIndexRoute = DashboardIndexRouteImport.update({
+  id: '/dashboard/',
+  path: '/dashboard/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DashboardProduitsRoute = DashboardProduitsRouteImport.update({
+  id: '/dashboard/produits',
+  path: '/dashboard/produits',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ProduitProductIdRoute = ProduitProductIdRouteImport.update({
   id: '/produit/$productId',
   path: '/produit/$productId',
@@ -39,34 +51,61 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/boutique': typeof BoutiqueRoute
   '/panier': typeof PanierRoute
+  '/dashboard/produits': typeof DashboardProduitsRoute
   '/produit/$productId': typeof ProduitProductIdRoute
+  '/dashboard/': typeof DashboardIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/boutique': typeof BoutiqueRoute
   '/panier': typeof PanierRoute
+  '/dashboard/produits': typeof DashboardProduitsRoute
   '/produit/$productId': typeof ProduitProductIdRoute
+  '/dashboard': typeof DashboardIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/boutique': typeof BoutiqueRoute
   '/panier': typeof PanierRoute
+  '/dashboard/produits': typeof DashboardProduitsRoute
   '/produit/$productId': typeof ProduitProductIdRoute
+  '/dashboard/': typeof DashboardIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/boutique' | '/panier' | '/produit/$productId'
+  fullPaths:
+    | '/'
+    | '/boutique'
+    | '/panier'
+    | '/dashboard/produits'
+    | '/produit/$productId'
+    | '/dashboard/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/boutique' | '/panier' | '/produit/$productId'
-  id: '__root__' | '/' | '/boutique' | '/panier' | '/produit/$productId'
+  to:
+    | '/'
+    | '/boutique'
+    | '/panier'
+    | '/dashboard/produits'
+    | '/produit/$productId'
+    | '/dashboard'
+  id:
+    | '__root__'
+    | '/'
+    | '/boutique'
+    | '/panier'
+    | '/dashboard/produits'
+    | '/produit/$productId'
+    | '/dashboard/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   BoutiqueRoute: typeof BoutiqueRoute
   PanierRoute: typeof PanierRoute
+  DashboardProduitsRoute: typeof DashboardProduitsRoute
   ProduitProductIdRoute: typeof ProduitProductIdRoute
+  DashboardIndexRoute: typeof DashboardIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -92,6 +131,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PanierRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/dashboard/': {
+      id: '/dashboard/'
+      path: '/dashboard'
+      fullPath: '/dashboard/'
+      preLoaderRoute: typeof DashboardIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dashboard/produits': {
+      id: '/dashboard/produits'
+      path: '/dashboard/produits'
+      fullPath: '/dashboard/produits'
+      preLoaderRoute: typeof DashboardProduitsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/produit/$productId': {
       id: '/produit/$productId'
       path: '/produit/$productId'
@@ -106,7 +159,9 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   BoutiqueRoute: BoutiqueRoute,
   PanierRoute: PanierRoute,
+  DashboardProduitsRoute: DashboardProduitsRoute,
   ProduitProductIdRoute: ProduitProductIdRoute,
+  DashboardIndexRoute: DashboardIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
